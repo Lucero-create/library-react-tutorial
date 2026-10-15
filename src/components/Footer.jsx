@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="row row__container">
           <a href="/">
             <figure className="footer__logo">
-              <img src={logo} class="footer__logo--img" alt="" />
+              <img src={Logo} class="footer__logo--img" alt="" />
             </figure>
           </a>
           <div className="footer__list">
@@ -30,4 +30,4 @@ const Footer = () => {
   );
 };
 
-export default Footter;
+export default Footer;

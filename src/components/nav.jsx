@@ -1,5 +1,7 @@
 import React from "react";
 import { IoMdCart } from "react-icons/io";
+import LibraryLogo from "../assets/Library.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Nav = () => {
   return (

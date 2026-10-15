@@ -1,11 +1,12 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
-const Book = ({ book }) => {
+export default Book = ({ book }) => {
   return (
     <div className="book">
       <a href="">
         <figure className="book__img--wrapper">
-          <Image
+          <img
           src={book.url} alt=""
           className="book__img" />
         </figure>
