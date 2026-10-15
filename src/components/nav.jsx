@@ -1,6 +1,5 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import LibraryLogo from "../assets/Library.svg";
+import { IoMdCart } from "react-icons/io";
 
 const Nav = () => {
   return (
@@ -28,7 +27,7 @@ const Nav = () => {
           </li>
           <li className="nav__icon">
             <a href="/cart" className="nav__link">
-              <FontAwesomeIcon icon="shopping-cart" />
+              <IoMdCart />
             </a>
             <span className="cart__length"></span>
           </li>
