@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Book from "../components/ui/Book";
 
-const Books = ({ books }) => {
+const Books = ({ books: initialBooks }) => {
   const [sortedBooks, setSortedBooks] = useState(books);
 
   function filterBooks(filter) {

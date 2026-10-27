@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaStar } from "react-icons/fa";
 
 const Rating = ({ rating }) => {
   return (
@@ -6,11 +7,11 @@ const Rating = ({ rating }) => {
       <div className="book__ratings">
         {
         new Array(Math.floor(rating)).fill(0).map((_, index) => (
-          <FontAwesomeIcon icon="star" key={index} />
+          <FaStar icon="star" key={index} />
         ))}
         {
         !Number.isInteger(rating) && (
-          <FontAwesomeIcon icon="star-half-alt" />
+          <FaStar icon="star-half-alt" />
         )}
       </div>
       </div>

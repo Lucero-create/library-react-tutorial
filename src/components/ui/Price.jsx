@@ -1,4 +1,6 @@
 import React from "react";
+import {book} from "./Book";
+
 
 const Price = ({ salePrice, originalPrice }) => (
   <div className="book__ratings">

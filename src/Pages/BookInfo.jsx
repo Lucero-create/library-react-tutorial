@@ -1,8 +1,11 @@
-
-import { Link, useParams } from "react-router-dom";
 import React, { useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import Price from "../components/ui/Price";
+import Rating from "../components/ui/Rating";
+import { FaArrowLeft } from "react-icons/fa";
 
-const BookInfo = ({ books, addToCart }) => {
+
+const BookInfo = ({ books, cart, addToCart }) => {
   const { id } = useParams();
   const book = books.find((book) => +book.id === +id);
   const [added, setAdded] =useState(false);
@@ -31,7 +34,7 @@ const BookInfo = ({ books, addToCart }) => {
               <figure className="book__selected--figure">
                 <img src={book.url} alt="" className="book__selected--img" />
               </figure>
-              <div classname="book__selected--description">
+              <div className="book__selected--description">
                 <h2 className="book__selected--title">{book.title}</h2>
                 <Rating rating={book.rating} />
                 <div className="book__selected--price">
@@ -41,7 +44,7 @@ const BookInfo = ({ books, addToCart }) => {
                   />
                 </div>
                 <div className="book__summary">
-                  <h3 classname="book__summary--title">Summary</h3>
+                  <h3 className="book__summary--title">Summary</h3>
                   <p className="book__summary--parra">
                     lorem todo lo que tengo lo tengo para ser mejor, si lo
                     aprovecho voy a ser muy feliz. Dos Ojos, dos cejas, una boca
@@ -60,7 +63,7 @@ const BookInfo = ({ books, addToCart }) => {
           </div>
         </div>
         <div className="books__container">
-          <div classname="row">
+          <div className="row">
             <div className="book__selected--top">
               <h2 className="book__selected--title--top">Recommended Books</h2>
             </div>
