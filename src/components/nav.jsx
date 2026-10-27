@@ -2,8 +2,16 @@ import React from "react";
 import { IoMdCart } from "react-icons/io";
 import LibraryLogo from "../assets/Library.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaBars } from "react-icons/fa";
 
 const Nav = () => {
+  function openMenu() {
+    document.body.classList += "menu--open";
+  }
+
+  function closeMenu() {
+    document.body.classList.remove("menuOpen");
+  }
   return (
     <nav>
       <div className="nav__container">
@@ -13,24 +21,29 @@ const Nav = () => {
 
         <ul className="nav-links">
           <li className="nav__list">
-            <a href="/" className="nav__link">
+            <Link to="/books" className="nav__link">
               Home
-            </a>
+            </Link>
           </li>
           <li className="nav__list">
-            <a href="/" className="nav__link">
+            <Link to="/" className="nav__link">
               Books
-            </a>
+            </Link>
           </li>
           <li className="nav__icon">
-            <button type="button" className="btn__menu" aria-label="Open menu">
-              <FontAwesomeIcon icon="bars" />
+            <button
+              type="button"
+              className="btn__menu"
+              onClick={openMenu}
+              aria-label="Open menu"
+            >
+              <FaBars />
             </button>
           </li>
           <li className="nav__icon">
-            <a href="/cart" className="nav__link">
+            <Link to="/cart" className="nav__link">
               <IoMdCart />
-            </a>
+            </Link>
             <span className="cart__length"></span>
           </li>
         </ul>
@@ -38,9 +51,9 @@ const Nav = () => {
         <div className="menu__backdrop">
           <button
             type="button"
-            className="btn__menu btn__menu--close"
-            aria-label="Close menu"
-          >
+            className="btn__menu btn__menu--close" onClick={closeMenu}
+            aria-label="Close menu">
+          
             <FontAwesomeIcon icon="times" />
           </button>
           <ul className="menu__links">
