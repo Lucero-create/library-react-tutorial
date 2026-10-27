@@ -1,6 +1,6 @@
-import React from "react";
+
 import { Link, useParams } from "react-router-dom";
-import React {useState } from "react";
+import React, { useState } from "react";
 
 const BookInfo = ({ books, addToCart }) => {
   const { id } = useParams();

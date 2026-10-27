@@ -1,6 +1,15 @@
-import React from 'react':
+import React, { useState, useEffect } from "react";
+import EmptyCart from "../assets/empty_cart.svg"
 
-const Cart = () => {
+const Cart = ({ cart, changeQuantity, removeItem }) => {
+  const total = () => {
+    let price = 0;
+    cart.forEach((item) => {
+      price += (item.salePrice || item.originalPrice) * item.quantity;
+    });
+    return price;
+  };
+
   return (
     <div id="books__body">
       <main id="books__main">
@@ -16,37 +25,71 @@ const Cart = () => {
                 <span className="cart__total">Price</span>
               </div>
               <div className="cart__body">
-                <div className="cart__item">
-                  <div className="cart__book">
-                    <img
-                    src=""
-                    class="cart__book--img" alt=""/>
-                    <div className="cart__book--info">
-                      <span className="cart__book--title">NAME</span>
-                      <span className="cart__book--price">$10.00</span>
-                      <button className="cart__book--remove">Remove</button>
+                {cart.map((book) => (
+                  <div className="cart__item" key={book.id || book.title}>
+                    <div className="cart__book">
+                      <img src={book.url} className="cart__book--img" alt="" />
+                      <div className="cart__book--info">
+                        <span className="cart__book--title">{book.title}</span>
+                        <span className="cart__book--price">
+                          ${(book.salePrice || book.originalPrice).toFixed(2)}
+                        </span>
+                        <button className="cart__book--remove" onClick={removeItem}>Remove</button>
+                      </div>
+                    </div>
+                    <div className="cart__quantity">
+                      <input
+                        type="number"
+                        min={0}
+                        max={99}
+                        className="cart__input"
+                        value={book.quantity}
+                        onChange={(event) => changeQuantity(event.target.value)}
+                      />
+                    </div>
+                    <div className="cart__total">
+                      $
+                      {(
+                        (book.salePrice || book.originalPrice) * book.quantity
+                      ).toFixed(2)}
                     </div>
                   </div>
-                  <div className="cart__quantity">
-                    <input type="number" min={0} max={99} class="cart__input"></input>
-                  </div>
-                  <div className="cart__total">$10.00</div>
-                </div>
+                ))}
               </div>
+              {cart.length === 0 && (
+              <div className="cart__empty">
+                <img src={EmptyCart} alt="" classname="cart__empty"></img>
+                <h2>You don't have any books in your cart!</h2>
+                <Link to="books">
+                <button className="btn">Browse books</button></Link>
+              </div>
+              )}
+              </div>
+              {cart.length > 0 && (
+              
+                <div className="total">
+              <div classname="total"></div>
+              <div className="total__item total__subtotal">
+                <span>Subtotal</span>
+                <span>${(total() * 0.9).toFixed(2)}</span>
+              </div>
+              <div className="total__item total__tax">
+                <span>Tax</span>
+                <span>${(total() * 0.1).toFixed(2)}</span>
+              </div>
+              <div className="total__item total__price">
+                <span>Total</span>
+                <span>${total().toFixed(2)}</span>
+              </div>
+              <button
+                className="btn btn__checkout no-cursor"
+                onClick={() => alert("havent got around doint this")}
+              >
+                Proceed to checkout
+              </button>
             </div>
-            <div className="total__item total__subtotal">
-              <span>Subtotal</span>
-              <span>$9.00</span>
-            </div>
-            <div className="total__item total__tax">
-              <span>Tax</span>
-              <span>$9.00</span>
           </div>
-          <div className="total__item total__price">
-              <span>Total</span>
-              <span>$9.00</span>
         </div>
-        <button className="btn btn__checkout no-cursor" onClick={() => alert('havent got around doint this')}>Proceed to checkout</button>
       </main>
     </div>
   );
