@@ -31,7 +31,7 @@ function App() {
     let counter =0;
     cart.forEach(item => {
       counter += item.quantity
-    })
+    });
     return counter;
   }
 

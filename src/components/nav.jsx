@@ -45,9 +45,9 @@ const Nav = ({ numberOfItems }) => {
             <Link to="/cart" className="nav__link">
               <IoMdCart />
             </Link>
-            {numberOfItems > 0 && (
+            {numberOfItems > 0 && 
               <span className="cart__length">{numberOfItems()}</span>
-            )}
+            }
           </li>
         </ul>
 

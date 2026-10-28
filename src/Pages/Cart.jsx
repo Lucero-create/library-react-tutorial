@@ -37,7 +37,7 @@ const Cart = ({ cart, changeQuantity, removeItem }) => {
                         </span>
                         <button
                           className="cart__book--remove"
-                          onClick={removeItem}
+                          onClick={() => removeItem(book)}
                         >
                           Remove
                         </button>
